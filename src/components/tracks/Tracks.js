@@ -4,16 +4,16 @@ import PropTypes from 'prop-types'
 import { getTracks } from '../../actions/trackActions'
 import Spinner from '../layout/Spinner'
 import SingleTrack from './SingleTrack'
-import { Row, Typography } from 'antd'
+import { Row, Typography, Button } from 'antd'
 
 const { Title } = Typography
 
 const Tracks = ({ getTracks, myTrack }) => {
-  const { trackList, heading, loading } = myTrack
+  const { trackList, heading, loading, inSearchMode } = myTrack
 
   useEffect(() => {
-    getTracks()
-  }, [getTracks])
+    if (!inSearchMode) getTracks()
+  }, [inSearchMode, getTracks])
 
   return (
     <Fragment>
@@ -21,7 +21,15 @@ const Tracks = ({ getTracks, myTrack }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <Title style={tracksHeadingStyle}>{heading}</Title>
+          <Title style={tracksHeadingStyle}>
+            {heading}{' '}
+            {inSearchMode && (
+              <Button type='primary' shape='circle' onClick={getTracks}>
+                <i className='fas fa-redo-alt'></i>
+              </Button>
+            )}
+          </Title>
+
           <Row>
             {trackList.map(trackItem => (
               <SingleTrack

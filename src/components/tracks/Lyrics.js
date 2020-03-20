@@ -34,7 +34,9 @@ const Lyrics = ({ match }) => {
 
         setLyricState({
           track: trackRes.data.message.body.track,
-          lyrics: lyricsRes.data.message.body.lyrics,
+          lyrics: lyricsRes.data.message.body.lyrics
+            ? lyricsRes.data.message.body.lyrics
+            : { lyrics_body: 'Lyrics Unavailable' },
           loading: false
         })
       } catch (error) {

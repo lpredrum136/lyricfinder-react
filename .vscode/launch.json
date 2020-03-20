@@ -17,7 +17,7 @@
       "request": "launch",
       "reAttach": true,
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/src/components/tracks/Lyrics.js"
+      "webRoot": "${workspaceFolder}/src"
     },
     {
       "name": "Attach",

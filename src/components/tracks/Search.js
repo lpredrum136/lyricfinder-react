@@ -11,7 +11,16 @@ const Search = ({ myTrack, findTrack }) => {
     trackTitle: ''
   })
 
-  const onSubmit = submittedValues => findTrack(submittedValues.trackTitle)
+  const { trackTitle } = searchState
+
+  const onChange = event => {
+    setSearchState({ [event.target.name]: event.target.value })
+  }
+
+  const onSubmit = submittedValues => {
+    findTrack(trackTitle)
+    setSearchState({ trackTitle: '' })
+  }
 
   return (
     <Card style={indexCardStyle}>
@@ -20,8 +29,14 @@ const Search = ({ myTrack, findTrack }) => {
       </Title>
       <Paragraph>Get the lyrics for any song</Paragraph>
       <Form size='large' onFinish={onSubmit} style={searchFormStyle}>
-        <Form.Item name='trackTitle'>
-          <Input placeholder='Song title...' />
+        <Form.Item>
+          <Input
+            placeholder='Song title...'
+            name='trackTitle'
+            onChange={onChange}
+            value={trackTitle}
+            allowClear
+          />
         </Form.Item>
         <Form.Item>
           <Button block type='primary' htmlType='submit'>
