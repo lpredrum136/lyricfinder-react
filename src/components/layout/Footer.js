@@ -1,6 +1,5 @@
 import React from 'react'
 import { Layout } from 'antd'
-import PropTypes from 'prop-types'
 
 const { Footer } = Layout
 
@@ -15,7 +14,5 @@ const AppFooter = props => {
 const footerStyle = {
   textAlign: 'center'
 }
-
-Footer.propTypes = {}
 
 export default AppFooter

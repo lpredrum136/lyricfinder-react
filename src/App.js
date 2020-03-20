@@ -8,6 +8,7 @@ import 'antd/dist/antd.css'
 import Navbar from './components/layout/Navbar'
 import BreadCrumb from './components/layout/BreadCrumb'
 import AppFooter from './components/layout/Footer'
+import Lyrics from './components/tracks/Lyrics'
 import Index from './components/layout/Index'
 
 const { Content } = Layout
@@ -22,6 +23,7 @@ const App = () => {
             <BreadCrumb />
             <Switch>
               <Route exact path='/' component={Index} />
+              <Route exact path='/lyrics/track/:id' component={Lyrics} />
             </Switch>
           </Content>
           <AppFooter />

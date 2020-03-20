@@ -1,11 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
 
 const Navbar = props => {
   return (
     <Menu theme='dark' mode='horizontal' style={menuStyle}>
-      <Menu.Item>LyricFinder</Menu.Item>
+      <Menu.Item>
+        <Link to='/'>LyricFinder</Link>
+      </Menu.Item>
     </Menu>
   )
 }
@@ -15,7 +17,5 @@ const menuStyle = {
   lineHeight: '46px',
   fontSize: '23px'
 }
-
-Navbar.propTypes = {}
 
 export default Navbar

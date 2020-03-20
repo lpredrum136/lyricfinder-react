@@ -1,4 +1,4 @@
-import { GET_TOP_TRACKS } from '../actions/types'
+import { GET_TOP_TRACKS, FIND_TRACK } from '../actions/types'
 
 const initialState = {
   trackList: [],
@@ -12,6 +12,13 @@ const trackReducer = (state = initialState, action) => {
   switch (type) {
     case GET_TOP_TRACKS:
       return { ...state, trackList: payload, loading: false }
+
+    case FIND_TRACK:
+      return {
+        ...state,
+        trackList: payload.trackList,
+        heading: `Search Results for "${payload.trackTitle}"`
+      }
 
     default:
       return state

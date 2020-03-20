@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import { Col, Card, Typography, Button } from 'antd'
 import { PlayCircleOutlined, ReadOutlined } from '@ant-design/icons'
 import { grey } from '@ant-design/colors'
@@ -38,10 +37,8 @@ const singleTrackStyle = {
 }
 
 const viewLyrics = {
-  backgroundColor: 'black',
+  backgroundColor: grey.primary,
   color: 'white'
 }
-
-SingleTrack.propTypes = {}
 
 export default SingleTrack
